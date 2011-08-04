@@ -1,0 +1,28 @@
+<!-- Tag definitions for the rtcradmin subsite -->
+
+<include src="rapid" gem="hobo"/>
+
+<include src="taglibs/auto/rtcradmin/rapid/cards"/>
+<include src="taglibs/auto/rtcradmin/rapid/pages"/>
+<include src="taglibs/auto/rtcradmin/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+
+
+<extend tag="page">
+  <old-page merge>
+    <append-stylesheets:>
+      <stylesheet name="rtcradmin"/>
+    </append-stylesheets:>
+    <footer:>
+      <a href="#{base_url}/"><t key="hobo.subsite.back_link">View Site</t></a>
+    </footer:>
+  </old-page>
+</extend>
+
+<extend tag="card" for="User">
+  <old-card merge>
+    <append-header:><%= h this.state.titleize %></append-header:>
+  </old-card>
+</extend>
